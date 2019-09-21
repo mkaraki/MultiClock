@@ -27,11 +27,17 @@ function clock()
 
     ctime_m = time_h * 60 + time_m;
 
-    if (time_h < 10) time_h = '0' + time_h;
     if (time_m < 10) time_m = '0' + time_m;
     if (time_s < 10) time_s = '0' + time_s;
 
-    var timestr = time_h + ':' + time_m + ':' + time_s;
+    dtime_h = time_h % 12;
+    if (time_h / 12 >= 1)
+        dtime_h = 'PM ' + dtime_h
+    else
+        dtime_h = 'AM ' + dtime_h
+
+
+    var timestr = dtime_h + ':' + time_m + ':' + time_s;
 
     document.getElementById('display-main').innerText = timestr;
 

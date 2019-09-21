@@ -9,22 +9,19 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-    <nav class="navbar navbar-light bg-light">
-        <a class="navbar-brand">Multi Clock</a>
-        <form class="form-inline">
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#alermModal">Alerm</button>
-            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#timerModal">Timer</button>
-        </form>
+<body class="">
+    <div id="menu-selecter">
+        <button class="btn btn-outline-primary" type="button" data-toggle="modal"
+            data-target="#alermModal">Alerm</button>
+        <button class="btn btn-outline-primary" type="button" data-toggle="modal"
+            data-target="#timerModal">Timer</button>
+    </div>
 
-        
-    </nav>
-    
     <div id="content-container">
         <blockquote class="blockquote text-center">
             <h1 class="display-1" id="display-main">--:--</h1>
             <p class="lead" id="cdisplay-main">Loading Clock</p>
-            
+
             <div class="progress" style="height: 1px;">
                 <div id="progress-main" class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
                     aria-valuemin="0" aria-valuemax="100"></div>

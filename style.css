@@ -1,4 +1,4 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -24,4 +24,11 @@ body {
 
     bottom: 0;
     right: 0;
+}
+
+#menu-selecter {
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 5px;
 }
