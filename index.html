@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multi Clock</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Multi Clock</a>
+        <form class="form-inline">
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#alermModal">Alerm</button>
+            <button class="btn btn-sm btn-outline-secondary" type="button" data-toggle="modal" data-target="#timerModal">Timer</button>
+        </form>
+
+        
+    </nav>
+    
+    <div id="content-container">
+        <blockquote class="blockquote text-center">
+            <h1 class="display-1" id="display-main">--:--</h1>
+            <p class="lead" id="cdisplay-main">Loading Clock</p>
+            
+            <div class="progress" style="height: 1px;">
+                <div id="progress-main" class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                    aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+            <h1 class="display-4" id="display-sub">--:--</h1>
+
+            <div id="dismissbtn-container" class="d-none">
+                <button type="button" class="btn btn-outline-primary" onclick="dismiss()">Dismiss</button>
+            </div>
+        </blockquote>
+    </div>
+
+    <div class="modal fade" id="alermModal" tabindex="-1" role="dialog" aria-labelledby="alermModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="alermModalLabel">Set alerm</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Alerm Confs -->
+                    <div class="input-group">
+                        <input type="text" aria-label="Hour" class="form-control" id="alermconf-h" value="0">
+                        <span class="input-group-text" id="addon-wrapping">:</span>
+                        <input type="text" aria-label="Minute" class="form-control" id="alermconf-m" value="0">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="setalerm()">Set</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="timerModal" tabindex="-1" role="dialog" aria-labelledby="timerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="timerModalLabel">Set timer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Timer Confs -->
+                    <div class="input-group">
+                        <input type="text" aria-label="Minute" class="form-control" id="timerconf-min" value="0">
+                        <span class="input-group-text" id="addon-wrapping">m</span>
+                        <input type="text" aria-label="Second" class="form-control" id="timerconf-sec" value="0">
+                        <span class="input-group-text" id="addon-wrapping">s</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="settimer()">Set</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="fullscreen-btn" type="button" class="btn btn-outline-secondary" onclick="fullscreen()">FS</button>
+
+    <!-- Audio Player -->
+    <audio src="audio/alerm_s1.wav" preload="auto" loop id="audioplayer"></audio>
+
+    <!-- Load js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.7/jstz.min.js"
+        integrity="sha256-bt5sKtbHgPbh+pz59UcZPl0t3VrNmD8NUbPu8lF4Ilc=" crossorigin="anonymous"></script>
+    <script src="multiclock.js"></script>
+</body>
+
+</html>
