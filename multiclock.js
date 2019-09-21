@@ -49,12 +49,14 @@ function clock()
         {
             setperc('progress-main', timer_left / timer_full * 100);
             setperccolor('progress-main', 'bg-primary');
+            setdisp2color('text-dark');
             document.getElementById('display-sub').innerText = timer_left + " Seconds Left";
         }
         else
         {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-danger');
+            setdisp2color('text-danger');
             document.getElementById('display-sub').innerText = Math.abs(timer_left) + " Seconds Over";
             playaudio();
         }
@@ -67,12 +69,14 @@ function clock()
         if ( alerm_time_h == time_h && alerm_time_m <= time_m) {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-danger');
+            setdisp2color('text-danger');
             playaudio();
         }
         else 
         {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-primary');
+            setdisp2color('text-dark');
         }
 
         document.getElementById('cdisplay-main').innerText = datestr + ' (' + timezone + ')';
@@ -87,6 +91,7 @@ function clock()
     {
         setperc('progress-main', 100);
         setperccolor('progress-main', 'bg-primary');
+        setdisp2color('text-dark');
         document.getElementById('display-sub').innerText = datestr;
         document.getElementById('cdisplay-main').innerText = timezone;
     }
@@ -166,6 +171,12 @@ function fullscreen()
         document.documentElement.requestFullscreen();
     else
         document.exitFullscreen();
+}
+
+function setdisp2color(color)
+{
+    var elm = document.getElementById('display-sub');
+    elm.setAttribute("class", 'display-4 ' + color);
 }
 
 setInterval(clock, 1000);
