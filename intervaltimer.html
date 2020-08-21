@@ -25,19 +25,24 @@
 
 <body id="body" class="bg-dark text-white">
 
-    <div id="timedisplay">
-        <h2 id="statusdisp" class="m-0">No Timer</h2>
-        <h1 id="timedisp1" class="display-1 text-white m-1">--:--</h1>
+    <div class="container-fluid m-0 p-0" style="height: 100%;">
+        <div class="row align-items-center m-0 p-0" style="height: 100%;">
+            <div class="col text-center m-0 p-0">
+                <h2 id="statusdisp" class="m-0">No Timer</h2>
+                <h1 id="timedisp1" class="display-1 text-white m-1">--:--</h1>
 
-        <div class="progress" style="height: 5px;">
-            <div id="progress-main" class="progress-bar bg-warning" role="progressbar" style="width: 100%;"></div>
-        </div>
+                <div class="progress mb-0 bg-dark" style="height: 5px;">
+                    <div id="progress-main" class="progress-bar bg-warning" role="progressbar" style="width: 100%;">
+                    </div>
+                </div>
 
-        <br />
-        <div class="bg-dark mt-2 p-3 pt-4">
-            <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#timerModal">Set</button>
-            <button type="button" class="btn btn-secondary" onclick="stop()">Stop</button>
-            <a class="btn btn-success" href="menu.html" role="button">Other Clocks</a>
+                <div class="bg-dark mt-0 pb-3 pt-3">
+                    <button class="btn btn-primary" type="button" data-toggle="modal"
+                        data-target="#timerModal">Set</button>
+                    <button type="button" class="btn btn-secondary" onclick="stop()">Stop</button>
+                    <a class="btn btn-success" href="menu.html" role="button">Other Clocks</a>
+                </div>
+            </div>
         </div>
     </div>
 

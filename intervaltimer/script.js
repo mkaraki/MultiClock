@@ -26,7 +26,6 @@ var state = 0;
 var stime, ttime, itime;
 var ostime, ottime, oitime;
 
-
 function tick() {
     if (state == 0) return stop();
 
@@ -36,41 +35,43 @@ function tick() {
         s = 'Starting'
         pc = 'info';
         d = stime--;
-        p = stime / (ostime - 1);
+        p = (stime + 1) / (ostime);
 
         if (stime < 1) {
             state = 3;
-            astart('notify');
-        } else if (stime < 4) {
+        }
+        if (stime < 3) {
             astart('pre');
         }
     } else if (state == 2 && oitime) {
+        if (oitime == itime) astart('notify');
         s = 'Interval'
         pc = 'primary';
         d = itime--;
-        p = itime / (oitime - 1);
+        p = (itime + 1) / (oitime);
+
+        if (itime < 3) {
+            astart('pre');
+        }
 
         if (itime < 1) {
             itime = oitime;
             state = 3;
-            astart('notify');
-        } else if (itime < 4) {
-            astart('pre');
         }
     } else {
+        if (ottime == ttime) astart('notify');
         s = 'Counting'
         pc = 'success';
         d = ttime--;
-        p = ttime / (ottime - 1);
+        p = (ttime + 1) / (ottime);
 
         if (ttime < 1) {
             ttime = ottime;
             state = (oitime != true) ? 2 : 3;
-            astart('notify');
         }
     }
 
-    tset(d - 1);
+    tset(d);
     pset(p * 100);
     pcset(pc);
     sset(s);
