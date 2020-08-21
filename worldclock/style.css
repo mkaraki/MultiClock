@@ -1,11 +1,7 @@
 #headscr {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
-    height: 40px;
-}
-
-#contentscr {
-    margin-top: 40px;
+    padding-bottom: 10px;
 }

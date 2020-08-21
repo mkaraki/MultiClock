@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Multi Clocks</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body>
-        <blockquote class="blockquote">
-            <h1 class="display-4">Multi Clock</h1>
-            <p class="lead">
-                Very light and simple clock web application.
-            </p>
-        </blockquote>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf8">
+    <title>Multi Clocks</title>
 
-        <hr />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145365019-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-        <div class="list-group">
-            <a href="index.html" class="list-group-item list-group-item-action">Multi Clock</a>
-            <a href="timer.html" class="list-group-item list-group-item-action">Timer</a>
-            <a href="circleclock.html" class="list-group-item list-group-item-action">Circle Clock</a>
-            <a href="worldclock.html" class="list-group-item list-group-item-action">World Clock</a>
-        </div>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-    </body>
+        gtag('config', 'UA-145365019-1');
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body class="m-2">
+    <blockquote class="blockquote">
+        <h1 class="display-4">Multi Clock</h1>
+        <p class="lead">
+            Light and simple web clock application.
+        </p>
+    </blockquote>
+
+    <hr />
+
+    <div class="list-group">
+        <a href="index.html" class="list-group-item list-group-item-action">Multi Clock</a>
+        <a href="timer.html" class="list-group-item list-group-item-action">Timer</a>
+        <a href="worldclock.html" class="list-group-item list-group-item-action">World Clock</a>
+    </div>
+</body>
+
 </html>

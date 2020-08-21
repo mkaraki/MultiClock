@@ -8,8 +8,7 @@ var alerm_enabled = false;
 var alerm_time_h = 0;
 var alerm_time_m = 0;
 
-function clock() 
-{
+function clock() {
     var now = new Date();
 
     var date_y = now.getFullYear();
@@ -31,29 +30,21 @@ function clock()
     if (time_s < 10) time_s = '0' + time_s;
 
     dtime_h = time_h % 12;
-    if (time_h / 12 >= 1)
-        dtime_h = 'PM ' + dtime_h
-    else
-        dtime_h = 'AM ' + dtime_h
+    ampm = (time_h / 12 > 0) ? 'PM' : 'AM'
 
-
-    var timestr = dtime_h + ':' + time_m + ':' + time_s;
+    var timestr = dtime_h + ':' + time_m + ':' + time_s + ' ' + ampm;
 
     document.getElementById('display-main').innerText = timestr;
 
-    if (timer_enabled)
-    {
+    if (timer_enabled) {
         showdismissbtn();
         timer_left--;
-        if (timer_left > 0)
-        {
+        if (timer_left > 0) {
             setperc('progress-main', timer_left / timer_full * 100);
             setperccolor('progress-main', 'bg-primary');
             setdisp2color('text-dark');
             document.getElementById('display-sub').innerText = timer_left + " Seconds Left";
-        }
-        else
-        {
+        } else {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-danger');
             setdisp2color('text-danger');
@@ -62,18 +53,14 @@ function clock()
         }
 
         document.getElementById('cdisplay-main').innerText = datestr + ' (' + timezone + ')';
-    }
-    else if (alerm_enabled)
-    {
+    } else if (alerm_enabled) {
         showdismissbtn();
-        if ( alerm_time_h == time_h && alerm_time_m <= time_m) {
+        if (alerm_time_h == time_h && alerm_time_m <= time_m) {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-danger');
             setdisp2color('text-danger');
             playaudio();
-        }
-        else 
-        {
+        } else {
             setperc('progress-main', 100);
             setperccolor('progress-main', 'bg-primary');
             setdisp2color('text-dark');
@@ -86,9 +73,7 @@ function clock()
         if (d_ah < 10) d_ah = '0' + d_ah;
         if (d_am < 10) d_am = '0' + d_am;
         document.getElementById('display-sub').innerText = d_ah + ':' + d_am;
-    }
-    else
-    {
+    } else {
         setperc('progress-main', 100);
         setperccolor('progress-main', 'bg-primary');
         setdisp2color('text-dark');
@@ -97,11 +82,10 @@ function clock()
     }
 }
 
-function dismiss()
-{
+function dismiss() {
     stopaudio();
     hidedismissbtn();
-    
+
     timer_enabled = false;
     timer_full = 0;
     timer_left = 0;
@@ -111,8 +95,7 @@ function dismiss()
     alerm_time_m = 0;
 }
 
-function settimer()
-{
+function settimer() {
     var min = parseInt(document.getElementById('timerconf-min').value);
     var sec = parseInt(document.getElementById('timerconf-sec').value);
 
@@ -124,8 +107,7 @@ function settimer()
     // console.log(tsec);
 }
 
-function setalerm()
-{
+function setalerm() {
     var h = parseInt(document.getElementById('alermconf-h').value);
     var m = parseInt(document.getElementById('alermconf-m').value);
 
@@ -139,25 +121,21 @@ function setperccolor(eid, color) {
     elm.setAttribute("class", 'progress-bar ' + color);
 }
 
-function setperc(eid, perc)
-{
+function setperc(eid, perc) {
     var elm = document.getElementById(eid);
     elm.setAttribute("style", "width: " + perc + "%;");
     elm.setAttribute("aria-valuenow", perc);
 }
 
-function playaudio()
-{
+function playaudio() {
     document.getElementById('audioplayer').play();
 }
 
-function stopaudio()
-{
+function stopaudio() {
     document.getElementById('audioplayer').pause();
 }
 
-function hidedismissbtn()
-{
+function hidedismissbtn() {
     document.getElementById('dismissbtn-container').setAttribute("class", "d-none");
 }
 
@@ -165,16 +143,14 @@ function showdismissbtn() {
     document.getElementById('dismissbtn-container').setAttribute("class", "");
 }
 
-function fullscreen()
-{
+function fullscreen() {
     if (document.fullscreenElement == null)
         document.documentElement.requestFullscreen();
     else
         document.exitFullscreen();
 }
 
-function setdisp2color(color)
-{
+function setdisp2color(color) {
     var elm = document.getElementById('display-sub');
     elm.setAttribute("class", 'display-4 ' + color);
 }

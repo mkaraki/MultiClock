@@ -10,11 +10,10 @@ if (tzone_h >= 0) tzone_hd = '+' + tzone_hd;
 else tzone_hd = '-' + tzone_hd;
 if (tzone_m < 10) tzone_m = '0' + tzone_m;
 
-var tzonestr = "UTC" + tzone_hd + ':' + tzone_m + ':00'
+var tzonestr = "UTC" + tzone_hd + ':' + tzone_m
 document.getElementById('currentlocaltimezone').innerText = tzonestr;
 
-function updatewidtime()
-{
+function updatewidtime() {
     var time = new Date(Date.now());
 
     var utc_h = time.getUTCHours();
@@ -44,23 +43,18 @@ function clock() {
 
     var time = Date.now();
 
-    for (var i = 0; i < offsets.length; i++)
-    {
+    for (var i = 0; i < offsets.length; i++) {
         var timeos = offsets[i];
         var ofst = offsetsac[i] * 1000;
 
-        if (offsetsiv[i])
-        {
+        if (offsetsiv[i]) {
             ofst = ofst * -1;
         }
 
         var tblcls = '';
-        if (timezone == ofst)
-        {
+        if (timezone == ofst) {
             tblcls = 'bg-danger';
-        }
-        else if (ofst == 0)
-        {
+        } else if (ofst == 0) {
             tblcls = 'bg-primary';
         }
 
@@ -73,14 +67,14 @@ function clock() {
         if (m < 10) m = '0' + m;
         if (s < 10) s = '0' + s;
 
-        var timestr = h + ':' +  m + ':' + s;
+        var timestr = h + ':' + m + ':' + s;
 
         addtimeitem(timeos, offsetnm[i], timestr, tblcls);
     }
 
 }
 
-function addtimeitem(ofv, ofn, oft, altclass = ""){
+function addtimeitem(ofv, ofn, oft, altclass = "") {
     var tblrow = document.createElement('tr');
     tblrow.setAttribute('class', altclass);
     tblrow.appendChild(createtd('UTC' + ofv));
@@ -90,14 +84,13 @@ function addtimeitem(ofv, ofn, oft, altclass = ""){
     document.getElementById('tablelistbody').appendChild(tblrow);
 }
 
-function createtd(str)
-{
+function createtd(str) {
     var work = document.createElement('td');
     work.innerText = str;
     return work;
 }
 
-function cleartimeitem(){
+function cleartimeitem() {
     $('#tablelistbody').empty();
 }
 
