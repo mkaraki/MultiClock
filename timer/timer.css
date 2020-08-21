@@ -1,5 +1,5 @@
-html, body {
-    margin: 0;
+html,
+body {
     padding: 0;
     height: 100%;
     width: 100%;
@@ -11,13 +11,13 @@ body {
 
 #timedisplay {
     position: fixed;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
     width: 100%;
-    height: 120px;
+    height: 180px;
 
     text-align: center;
 
@@ -26,12 +26,12 @@ body {
 
 #timerprogress {
     position: fixed;
-    top:0;
-    left:0;
-    right:0;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-#fullscreen-btn{
+#fullscreen-btn {
     position: fixed;
 
     bottom: 0;
