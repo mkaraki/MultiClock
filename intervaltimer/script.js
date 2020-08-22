@@ -3,10 +3,14 @@ gv = id => ge(id).value;
 gvi = id => parseInt(gv(id));
 st = (id, str) => ge(id).innerText = str;
 tset = sec => {
-    var m = Math.floor(sec / 60);
-    var s = Math.floor(sec % 60);
-    if (s < 10) s = '0' + s;
-    st('timedisp1', m + ':' + s);
+    if (sec < 0) {
+        st('timedisp1', '--:--');
+    } else {
+        var m = Math.floor(sec / 60);
+        var s = Math.floor(sec % 60);
+        if (s < 10) s = '0' + s;
+        st('timedisp1', m + ':' + s);
+    }
 }
 pset = perc => ge('progress-main').setAttribute('style', `width: ${perc}%;`);
 pcset = c => ge('body').setAttribute('class', `bg-${c} text-white`)
@@ -80,6 +84,8 @@ function tick() {
 function stop() {
     clearInterval(timer);
     state = 0;
+    tset(-1);
+    pset(100);
     pcset('dark');
     sset('No Timer');
 }
